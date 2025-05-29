@@ -1,4 +1,4 @@
-import { keyframes, Stack, Typography } from "@mui/material";
+import { Box, keyframes, Stack, Typography } from "@mui/material";
 import {
   HeroImageStyled,
   HeroStackOneStyled,
@@ -51,11 +51,11 @@ const HeroSection = () => {
               color: "darkblue",
               fontWeight: 600,
               maxWidth: "80%",
-              my:2,
+              my: 2,
               [theme.breakpoints.down("sm")]: {
                 maxWidth: "100%",
                 textAlign: "center",
-                my:0
+                my: 0,
               },
             })}
           >
@@ -72,8 +72,12 @@ const HeroSection = () => {
               },
             })}
           >
-            <StyledButton>Get Started</StyledButton>
-            <StyledButtonTwo>Learn More</StyledButtonTwo>
+            <Box component={"a"} href="#courses">
+              <StyledButton>Get Started</StyledButton>
+            </Box>
+            <Box component={"a"} href="#learn-more">
+              <StyledButtonTwo>Learn More</StyledButtonTwo>
+            </Box>
           </Stack>
         </HeroStackOneStyled>
         <HeroStackTwoStyled>
@@ -90,16 +94,19 @@ const HeroSection = () => {
             borderRadius: "40px",
             border: "1px solid darkblue",
             cursor: "pointer",
-            [theme.breakpoints.down('sm')]:{
-                mt:2
-            }
+            [theme.breakpoints.down("sm")]: {
+              mt: 2,
+            },
           })}
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <KeyboardDoubleArrowDownIcon
-            sx={{ color: "darkblue", animation: `${bounce} 1.5s infinite` }}
-          />
+          <Box component={"a"}
+            href="#courses">
+            <KeyboardDoubleArrowDownIcon
+              sx={{ color: "darkblue", animation: `${bounce} 1.5s infinite` }}
+            />
+          </Box>
         </Stack>
       </Stack>
     </>

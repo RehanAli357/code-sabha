@@ -15,7 +15,9 @@ const HomePage = () => {
       <Box id="courses">
         <CoursesSection />
       </Box>
-      <TimelineSection />
+      <Box id="learn-more">
+        <TimelineSection />
+      </Box>
       <ChooseUs />
       <Box id="about-us">
         <AboutUs />
