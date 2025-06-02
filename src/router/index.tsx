@@ -1,9 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import { lazy, Suspense } from "react";
+
 import RootLayout from "../layout/root-layout";
 import { ROUTE } from "./routes";
 
-const HomePage = lazy(() => import("../features/homePage"));
 export const router = createBrowserRouter([
   {
     path: ROUTE.HomePageRoute,
@@ -11,11 +10,24 @@ export const router = createBrowserRouter([
     children: [
       {
         path: ROUTE.HomePageRoute,
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <HomePage />
-          </Suspense>
-        ),
+        lazy: async () => {
+          const HomePage = (await import("../features/homePage")).default;
+          return { Component: HomePage };
+        },
+      },
+      {
+        path: ROUTE.Course,
+        lazy: async () => {
+          const CoursePage = (await import("../features/coursePage")).default;
+          return { Component: CoursePage };
+        },
+      },
+      {
+        path: "*",
+        lazy: async () => {
+          const ErrorPage = (await import("../features/ErrorPage")).default;
+          return { Component: ErrorPage };
+        },
       },
     ],
   },

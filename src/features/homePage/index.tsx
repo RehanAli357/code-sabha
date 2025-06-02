@@ -1,30 +1,46 @@
-import AboutUs from "./components/about-us";
-import ChooseUs from "./components/choose-us-section";
-import CoursesSection from "./components/courses-section";
+import { lazy, Suspense } from "react";
+import { Box } from "@mui/material";
 import HeroSection from "./components/hero-section";
 import TechStack from "./components/tech-stack";
-import TimelineSection from "./components/timeline-section";
-import ContactUs from "./components/contact-us";
-import { Box } from "@mui/material";
+import ChooseUs from "./components/choose-us-section";
+import Loader from "../../common/components/loader";
+
+const CoursesSection = lazy(() => import("./components/courses-section"));
+const TimelineSection = lazy(() => import("./components/timeline-section"));
+const AboutUs = lazy(() => import("./components/about-us"));
+const ContactUs = lazy(() => import("./components/contact-us"));
 
 const HomePage = () => {
   return (
     <>
       <HeroSection />
       <TechStack />
-      <Box id="courses">
-        <CoursesSection />
-      </Box>
-      <Box id="learn-more">
-        <TimelineSection />
-      </Box>
+
+      <Suspense fallback={<Loader />}>
+        <Box id="courses">
+          <CoursesSection />
+        </Box>
+      </Suspense>
+
+      <Suspense fallback={<Loader />}>
+        <Box id="learn-more">
+          <TimelineSection />
+        </Box>
+      </Suspense>
+
       <ChooseUs />
-      <Box id="about-us">
-        <AboutUs />
-      </Box>
-      <Box id="contact-us">
-        <ContactUs />
-      </Box>
+
+      <Suspense fallback={<Loader />}>
+        <Box id="about-us">
+          <AboutUs />
+        </Box>
+      </Suspense>
+
+      <Suspense fallback={<Loader />}>
+        <Box id="contact-us">
+          <ContactUs />
+        </Box>
+      </Suspense>
     </>
   );
 };

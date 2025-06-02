@@ -98,6 +98,7 @@ const CoursesSection = () => {
             heading={data.heading}
             subtext={data.subtext}
             key={index}
+            navigateString={data.navigateString}
           />
         ))}
       </Stack>
