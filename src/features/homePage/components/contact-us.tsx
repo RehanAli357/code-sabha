@@ -39,7 +39,12 @@ const ContactUs = () => {
           margin: "auto",
         }}
       >
-        <Typography variant={isMobileView?"h6":"h4"} fontWeight="bold" textAlign="center" mb={4}>
+        <Typography
+          variant={isMobileView ? "h6" : "h4"}
+          fontWeight="bold"
+          textAlign="center"
+          mb={4}
+        >
           Contact Us 📬
         </Typography>
 
@@ -150,9 +155,23 @@ const ContactUs = () => {
           justifyContent={"space-evenly"}
           alignItems={"center"}
         >
-          <img src={WhatsApp} alt="whatsapp" width={isMobileView ?"30px":"50px"} />
-          <img src={Instagram} alt="instagram" width={isMobileView ?"30px":"50px"} />
-          <img src={Gmail} alt="gmail" width={isMobileView ?"30px":"50px"} />
+          <a
+            href={`https://wa.me/7253070157?text=Hi, I am interested in your course.`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={WhatsApp}
+              style={{ width: "50px", cursor: "pointer" }}
+              alt="Contact on WhatsApp"
+            />
+          </a>
+          <img
+            src={Instagram}
+            alt="instagram"
+            width={isMobileView ? "30px" : "50px"}
+          />
+          <img src={Gmail} alt="gmail" width={isMobileView ? "30px" : "50px"} />
         </Stack>
       </Paper>
     </Stack>

@@ -1,15 +1,31 @@
 import { CardContent, Typography, Box } from "@mui/material";
 import CourseOne from "../../../../assets/course1.jpg";
 import { CardMediaStyled, CardMediaTextStyled, CardStyled } from "../../style";
+import { useNavigate } from "react-router-dom";
+import { ROUTE } from "../../../../router/routes";
 
 interface CourseCardProps {
   subtext: string;
   heading: string;
+  navigateString: string;
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({ subtext, heading }) => {
+const CourseCard: React.FC<CourseCardProps> = ({
+  subtext,
+  heading,
+  navigateString,
+}) => {
+  const navigate = useNavigate();
+  const handleNavigate = (navigateString: string) => {
+    navigate(ROUTE.Course.replace(":id", navigateString));
+  };
+
   return (
-    <CardStyled>
+    <CardStyled
+      onClick={() => {
+        handleNavigate(navigateString);
+      }}
+    >
       <Box sx={{ position: "relative" }}>
         <CardMediaStyled image={CourseOne} title={heading} />
         <CardMediaTextStyled>{heading}</CardMediaTextStyled>
@@ -20,7 +36,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ subtext, heading }) => {
           sx={(theme) => ({
             fontSize: theme.typography.h4.fontSize,
             [theme.breakpoints.down("sm")]: {
-               fontSize: theme.typography.body1.fontSize,
+              fontSize: theme.typography.body1.fontSize,
             },
           })}
           gutterBottom
