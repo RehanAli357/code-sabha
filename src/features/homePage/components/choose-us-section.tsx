@@ -68,16 +68,33 @@ const ChooseUs = () => {
             width: "50%",
             margin: "auto",
             bgcolor: "white",
-              [theme.breakpoints.down(900)]: {
+            [theme.breakpoints.down(900)]: {
               width: "90%",
             },
-            
           })}
         >
-          <Typography fontWeight={700} variant="h5" mb={1}>
+          <Typography
+            fontWeight={700}
+            sx={(theme) => ({
+              fontSize: theme.typography.h5.fontSize,
+              [theme.breakpoints.down("sm")]: {
+                fontSize: theme.typography.h6.fontSize,
+              },
+            })}
+            mb={1}
+          >
             {feature.title}
           </Typography>
-          <Typography variant="body1" mb={2} color="text.secondary">
+          <Typography
+            sx={(theme) => ({
+              fontSize: theme.typography.body1.fontSize,
+              [theme.breakpoints.down("sm")]: {
+                fontSize: theme.typography.body2.fontSize,
+              },
+            })}
+            mb={2}
+            color="text.secondary"
+          >
             {feature.description}
           </Typography>
         </Box>

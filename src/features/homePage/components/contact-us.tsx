@@ -33,6 +33,7 @@ const ContactUs = () => {
         elevation={3}
         sx={{
           padding: 4,
+          paddingBottom:3,
           borderRadius: "16px",
           maxWidth: "600px",
           width: "100%",
@@ -162,7 +163,9 @@ const ContactUs = () => {
           >
             <img
               src={WhatsApp}
-              style={{ width: "50px", cursor: "pointer" }}
+              width={isMobileView ? "30px" : "50px"}
+              style={{marginTop:"10px"}}
+              height={isMobileView ? "30px" : "50px"}
               alt="Contact on WhatsApp"
             />
           </a>
@@ -170,8 +173,14 @@ const ContactUs = () => {
             src={Instagram}
             alt="instagram"
             width={isMobileView ? "30px" : "50px"}
+            height={isMobileView ? "30px" : "50px"}
           />
-          <img src={Gmail} alt="gmail" width={isMobileView ? "30px" : "50px"} />
+          <img
+            src={Gmail}
+            alt="gmail"
+            width={isMobileView ? "30px" : "50px"}
+            height={isMobileView ? "30px" : "50px"}
+          />
         </Stack>
       </Paper>
     </Stack>

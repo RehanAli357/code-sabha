@@ -1,9 +1,11 @@
 import { Stack, Typography, Box } from "@mui/material";
 import { CourseHeadingText } from "../style";
+import { useIsMobileView } from "../../../utils/responsive-hook";
 
 const AboutUs = () => {
+  const isMobileView = useIsMobileView();
   return (
-    <Stack spacing={4} padding={4} alignItems="center">
+    <Stack spacing={4} padding={isMobileView ? 2 : 4} alignItems="center">
       <CourseHeadingText>About Us 🌟</CourseHeadingText>
 
       <Typography
@@ -41,7 +43,7 @@ const AboutUs = () => {
         <Typography variant="h5" fontWeight={700} mb={2}>
           Our Mission 🎯
         </Typography>
-        <Typography variant="body1" color="text.secondary" paragraph>
+        <Typography variant="body1" color="text.secondary" component={"p"}>
           Our mission is to provide personalized, project-based learning that
           helps students achieve mastery in various subjects. We aim to make
           education accessible, engaging, and stress-free by integrating
@@ -51,20 +53,20 @@ const AboutUs = () => {
         <Typography variant="h5" fontWeight={700} mb={2}>
           Our Values 💡
         </Typography>
-        <Typography variant="body1" color="text.secondary" paragraph>
+        <Typography variant="body1" color="text.secondary" component={"p"}>
           <strong>1. Innovation:</strong> We embrace innovative teaching
           techniques and constantly evolve to meet the needs of our students.
         </Typography>
-        <Typography variant="body1" color="text.secondary" paragraph>
+        <Typography variant="body1" color="text.secondary" component={"p"}>
           <strong>2. Integrity:</strong> We believe in transparency, honesty,
           and building trust with our students and staff.
         </Typography>
-        <Typography variant="body1" color="text.secondary" paragraph>
+        <Typography variant="body1" color="text.secondary" component={"p"}>
           <strong>3. Excellence:</strong> We strive for excellence in all that
           we do and ensure that our students receive the best education
           possible.
         </Typography>
-        <Typography variant="body1" color="text.secondary" paragraph>
+        <Typography variant="body1" color="text.secondary" component={"p"}>
           <strong>4. Empathy:</strong> We understand the challenges our students
           face and offer support at every step of their learning journey.
         </Typography>

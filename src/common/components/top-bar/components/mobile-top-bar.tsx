@@ -11,23 +11,39 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate, useLocation } from "react-router-dom";
+import { ROUTE } from "../../../../router/routes";
 import Logo from "../../logo";
 
 const MobileTopBar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleDrawer = (state: boolean) => () => {
     setOpen(state);
   };
 
   const menuItems = [
-    { text: "About", path: "#about-us" },
-    { text: "Courses", path: "#courses" },
-    { text: "Contact", path: "#contact-us" },
+    { text: "About", sectionId: "#about-us" },
+    { text: "Courses", sectionId: "#courses" },
+    { text: "Contact", sectionId: "#contact-us" },
   ];
 
-  const handleLinkClick = () => {
+  const handleNavClick = (sectionId: string) => {
     setOpen(false);
+    const isHome = location.pathname === ROUTE.HomePageRoute;
+
+    if (isHome) {
+      const element = document.querySelector(sectionId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    } else {
+      navigate(`${ROUTE.HomePageRoute}${sectionId}`);
+    }
   };
 
   return (
@@ -57,11 +73,7 @@ const MobileTopBar = () => {
           <List>
             {menuItems.map((item) => (
               <ListItem key={item.text} disablePadding>
-                <ListItemButton
-                  component="a"
-                  href={item.path}
-                  onClick={handleLinkClick}
-                >
+                <ListItemButton onClick={() => handleNavClick(item.sectionId)}>
                   <ListItemText
                     primary={item.text}
                     primaryTypographyProps={{

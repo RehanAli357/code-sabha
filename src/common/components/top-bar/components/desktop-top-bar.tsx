@@ -1,7 +1,25 @@
 import { List, ListItem, Stack } from "@mui/material";
+import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../logo";
+import { ROUTE } from "../../../../router/routes";
 
 const DesktopTopBar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (sectionId: string) => {
+    const isHome = location.pathname === ROUTE.HomePageRoute;
+
+    if (isHome) {
+      const element = document.querySelector(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate(`${ROUTE.HomePageRoute}${sectionId}`);
+    }
+  };
+
   return (
     <Stack
       component={"nav"}
@@ -23,37 +41,37 @@ const DesktopTopBar = () => {
           }}
         >
           <ListItem
-            component={"a"}
-            href="#about-us"
+            onClick={() => handleNavClick("#about-us")}
             sx={{
               color: "darkblue",
               fontSize: "20px",
               fontWeight: 500,
               whiteSpace: "nowrap",
+              cursor: "pointer",
             }}
           >
             About Us
           </ListItem>
           <ListItem
-            component={"a"}
-            href="#courses"
+            onClick={() => handleNavClick("#courses")}
             sx={{
               color: "darkblue",
               fontSize: "20px",
               fontWeight: 500,
               whiteSpace: "nowrap",
+              cursor: "pointer",
             }}
           >
             Courses
           </ListItem>
           <ListItem
-            component={"a"}
-            href="#contact-us"
+            onClick={() => handleNavClick("#contact-us")}
             sx={{
               color: "darkblue",
               fontSize: "20px",
               fontWeight: 500,
               whiteSpace: "nowrap",
+              cursor: "pointer",
             }}
           >
             Contact Us
