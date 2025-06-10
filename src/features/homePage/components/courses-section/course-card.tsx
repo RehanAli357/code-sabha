@@ -3,6 +3,7 @@ import CourseOne from "../../../../assets/course1.jpg";
 import { CardMediaStyled, CardMediaTextStyled, CardStyled } from "../../style";
 import { useNavigate } from "react-router-dom";
 import { ROUTE } from "../../../../router/routes";
+import React from "react";
 
 interface CourseCardProps {
   subtext: string;
@@ -49,4 +50,4 @@ const CourseCard: React.FC<CourseCardProps> = ({
   );
 };
 
-export default CourseCard;
+export default React.memo(CourseCard);
