@@ -27,7 +27,6 @@ const HomePage = () => {
     }
   }, [location]);
 
-  // Track scroll position
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300);
@@ -49,23 +48,17 @@ const HomePage = () => {
         <Box id="courses">
           <CoursesSection />
         </Box>
-      </Suspense>
 
-      <Suspense fallback={<Loader />}>
         <Box id="learn-more">
           <TimelineSection />
         </Box>
-      </Suspense>
 
-      <ChooseUs />
+        <ChooseUs />
 
-      <Suspense fallback={<Loader />}>
         <Box id="about-us">
           <AboutUs />
         </Box>
-      </Suspense>
 
-      <Suspense fallback={<Loader />}>
         <Box id="contact-us">
           <ContactUs />
         </Box>
