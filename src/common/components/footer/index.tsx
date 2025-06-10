@@ -1,6 +1,7 @@
 import { Stack, Typography, Box } from "@mui/material";
 import Logo from "../logo";
 import { Link } from "react-router-dom";
+import { appVersion } from "../../../constants/app-version";
 
 const Footer = () => {
   return (
@@ -14,7 +15,7 @@ const Footer = () => {
       >
         <Stack flexDirection={"row"} alignItems={"flex-end"} justifyContent={'flex-start'}>
           <Logo color="gold" />
-          <span style={{marginBottom:'10px',fontSize:"10px",color:"aliceblue",marginLeft:'5px'}}>v0.0.1</span>
+          <span style={{marginBottom:'10px',fontSize:"10px",color:"aliceblue",marginLeft:'5px'}}>v{appVersion}</span>
         </Stack>
 
         <Stack direction="row" spacing={3}>
