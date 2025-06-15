@@ -14,6 +14,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ROUTE } from "../../../../router/routes";
 import Logo from "../../logo";
+import { SearchButtonStyled } from "../../../../features/homePage/style";
 
 const MobileTopBar = () => {
   const [open, setOpen] = useState(false);
@@ -76,15 +77,22 @@ const MobileTopBar = () => {
                 <ListItemButton onClick={() => handleNavClick(item.sectionId)}>
                   <ListItemText
                     primary={item.text}
-                    primaryTypographyProps={{
-                      color: "darkblue",
-                      fontSize: 16,
-                    }}
+                    sx={{ color: "darkblue", fontSize: "16px" }}
                   />
                 </ListItemButton>
               </ListItem>
             ))}
           </List>
+          <a href="https://devconsole-codesabha.netlify.app/" target="_blank">
+            <SearchButtonStyled
+              sx={{ width: "100%", marginLeft: 2 }}
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              Portal
+            </SearchButtonStyled>
+          </a>
         </Box>
       </Drawer>
     </>

@@ -2,6 +2,7 @@ import { List, ListItem, Stack } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../logo";
 import { ROUTE } from "../../../../router/routes";
+import { SearchButtonStyled } from "../../../../features/homePage/style";
 
 const DesktopTopBar = () => {
   const navigate = useNavigate();
@@ -75,6 +76,11 @@ const DesktopTopBar = () => {
             }}
           >
             Contact Us
+          </ListItem>
+          <ListItem>
+            <a href="https://devconsole-codesabha.netlify.app/" target="_blank">
+              <SearchButtonStyled onClick={() => {}}>Portal</SearchButtonStyled>
+            </a>
           </ListItem>
         </List>
       </Stack>
